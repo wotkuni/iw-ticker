@@ -1,0 +1,23 @@
+body {
+    background-color: #eef;
+}
+
+#quotes {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 20px auto;
+    width: 400px;
+}
+
+    #quotes td {
+        border: 1px solid #ccc;
+        text-align: right;
+    }
+
+    #quotes td.bid {
+        color: #0033ff;
+    }
+
+    #quotes td.ask {
+        color: #ff3300;
+    }
