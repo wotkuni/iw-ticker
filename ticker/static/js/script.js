@@ -1,6 +1,14 @@
 $(function() {
     Backbone.sync = function() {
-        var ws = new WebSocket('ws://localhost:9000/ws');
+        var host = document.location.hostname;
+
+        if(host.indexOf('localhost') > -1) {
+            host += ':' + port
+        }
+
+        var wsUrl = 'ws://' + host + '/ws';
+
+        var ws = new WebSocket(wsUrl);
 
         ws.onopen = function () {
             console.log('socket open');

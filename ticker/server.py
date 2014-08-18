@@ -11,6 +11,7 @@ from ws4py.websocket import WebSocket
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 default_symbols = ['AAPL', 'MSFT', 'GOOG']
+port = os.environ.get('PORT', '5000')
 
 class QuoteDataSource(object):
     def __init__(self):
@@ -90,7 +91,7 @@ class CherryHandler(object):
 
 class Ticker(object):
     def __init__(self):
-        cherrypy.config.update({'server.socket_port': 9000})
+        cherrypy.config.update({'server.socket_port': port})
         WebSocketPlugin(cherrypy.engine).subscribe()
         cherrypy.tools.websocket = WebSocketTool()
 
