@@ -11,7 +11,8 @@ from ws4py.websocket import WebSocket
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 default_symbols = ['AAPL', 'MSFT', 'GOOG']
-port = os.environ.get('PORT', '5000')
+port = int(os.environ.get('PORT', '5000'))
+
 
 class QuoteDataSource(object):
     def __init__(self):
@@ -42,7 +43,10 @@ class QuoteDataSource(object):
 
             return_data.append(data)
 
+        f.close()
+
         return return_data
+
 
 class QuoteServer(threading.Thread):
     def __init__(self):
